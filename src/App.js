@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Header from "./Components/Header";
+import MainBody from "./Components/MainBody/MainBody";
+import Footer from "./Components/Footer";
 
 function App() {
+  const [properties, setProperties] = useState([]);
+  // const [propertyId, setPropertyId] = useState("1");
+
+  useEffect(() => {
+    fetch("https://tnc-resida-josn-server-vercel.vercel.app/properties")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => setProperties(data))
+      .catch((error) => console.error("Fetch error:", error));
+  }, []);
+
+  // function handleSelectedProperty(propertyId) {
+  //   setPropertyId(propertyId);
+  // }
+
+  const filteredProperty = properties.filter(
+    (property) => property.id === 1
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <MainBody property={filteredProperty}/>
+      <Footer/>
     </div>
   );
 }

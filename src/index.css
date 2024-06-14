@@ -1,13 +1,80 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.menu-item {
+    @apply text-gray-800 hover:text-gray-900 relative;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.menu-item::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: #e97777; /* Replace with your desired color */
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease-in;
+    width: 0;
+}
+
+.menu-item:hover::after, 
+.menu-item:focus::after{
+    width: 50%;
+}
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    background:transparent;
+    border:solid 2px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    color: rgb(205, 205, 205); /* Icon color */
+    text-decoration: none;
+}
+
+.social-icon i {
+    font-size: 20px; /* Adjust icon size */
+}
+
+.social-icon.facebook:hover {
+    background-color: #3b5998; /* Facebook blue */
+    border:none;
+    color:white
+
+}
+
+.social-icon.twitter:hover {
+    background-color: #00aced; /* Twitter blue */
+    border:none;
+    color:white
+}
+
+.social-icon.pinterest:hover {
+    background-color: #cb2027; /* Pinterest red */
+    border:none;
+    color:white
+}
+
+.social-icon.linkedin:hover {
+    background-color: #007bb6; /* LinkedIn blue */
+    border:none;
+    color:white
+}
+
+.social-icon.youtube:hover {
+    background-color: #ff0000; /* YouTube red */
+    border:none;
+    color:white
 }

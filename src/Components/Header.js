@@ -20,7 +20,7 @@ function Header() {
 
   return (
     <header>
-      <nav className="bg-black grid lg:grid-cols-3 grid-cols-6 grid-flow-col auto-cols-max justify-between lg:p-4 py-8 px-4 items-center shadow-sm">
+      <nav className="grid lg:grid-cols-3 grid-cols-6 grid-flow-col auto-cols-max justify-between lg:p-4 py-8 px-4 items-center shadow-sm">
         <div className="lg:col-span-1 col-span-5">
           <img src={logoImg} alt="logoimage" className="lg:h-7 h-5" />
         </div>
